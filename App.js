@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import GameListScreen from './views/GameListScreen';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,13 +19,11 @@ import {
 } from 'react-native';
 
 export default App = () => {
-  
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaView>
-      <ScrollView>
-      </ScrollView>
+      <GameListScreen />
     </SafeAreaView>
   );
 };
