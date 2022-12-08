@@ -22,10 +22,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 
 ### Modules externes utilisés:
 
-- Lorem
-- Ipsum
 - react-native-vector-icons (icônes pour la navbar)
 - @react-navigation/bottom-tabs (pour la navbar)
 - @react-navigation/native-stack (pour la navigation)
 - @react-navigation/native (starter pack)
 - react-native-screens react-native-safe-area-context (starter pack)
+- react-redux
+- @reduxjs/toolkit
+- @react-native-async-storage/async-storage
+- redux-persist
+- react-native-screens
+- react-native-safe-area-context
