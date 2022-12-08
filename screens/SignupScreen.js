@@ -45,6 +45,20 @@ const SignupScreen = props => {
       return;
     }
 
+    if (userBase.find(x => x.name === pseudoInput)) {
+      Alert.alert(
+        `Erreur`, "Ce pseudo est déjà utilisé"
+      );
+      return;
+    }
+
+    else {
+      Alert.alert(
+        ``, "Votre compte a bien été créé"
+      );
+    }
+
+
     const user = {
       name: pseudoInput,
       pwd: pwdInput
