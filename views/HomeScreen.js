@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import GameFlatList from '../components/GameFlatList';
 
-export default HomePageScreen = ({}) => {
+export default HomeScreen = ({}) => {
   return (
     <SafeAreaView>
       <GameFlatList category={'new'}/>
