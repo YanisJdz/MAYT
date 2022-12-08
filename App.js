@@ -17,16 +17,12 @@ import {
   View,
 } from 'react-native';
 
+import Navigation from './components/Navigation';
+
 export default App = () => {
-  
   const isDarkMode = useColorScheme() === 'dark';
 
-  return (
-    <SafeAreaView>
-      <ScrollView>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  return <Navigation />;
 };
 
 const styles = StyleSheet.create({});
