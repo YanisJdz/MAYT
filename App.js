@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import GameListScreen from './views/GameListScreen';
+import HomePageScreen from './views/HomePageScreen';
 import {
   SafeAreaView,
   ScrollView,
@@ -23,7 +23,7 @@ export default App = () => {
 
   return (
     <SafeAreaView>
-      <GameListScreen />
+      <HomePageScreen/>
     </SafeAreaView>
   );
 };
