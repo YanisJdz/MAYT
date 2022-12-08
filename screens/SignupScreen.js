@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableHighlight,
-} from 'react-native';
+  TouchableHighlight, View,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {actions as userActions} from "../redux/reducers/userReducer";
 
@@ -76,81 +76,57 @@ const SignupScreen = props => {
       <Text
         style={{
           fontWeight: 'bold',
-          color: 'black',
+          color: 'white',
           fontSize: 25,
+          marginBottom: 20,
         }}>
         Inscription
       </Text>
 
       <Image
-        source={require('../assets/pictures/1658862659257.jpeg')}
-        style={{
-          width: 150,
-          height: 150,
-          borderRadius: 400 / 2,
-        }}
+        source={require('../assets/pictures/logo_freetogame.png')}
+        style={styles.image}
       />
 
+      <View style={styles.inputView}>
       <TextInput
-        style={styles.formInput}
+        style={styles.TextInput}
         value={pseudoInput}
         onChangeText={setPseudoInput}
         placeholder={'Pseudo'}
+        placeholderTextColor="#003f5c"
       />
+      </View>
+
+      <View style={styles.inputView}>
       <TextInput
-        style={validPwd ? styles.mdpNotValid : styles.formInput}
+        style={validPwd ? styles.mdpNotValid : styles.TextInput}
         value={pwdInput}
         secureTextEntry={true}
         onChangeText={setPwdInput}
         placeholder={'Mot de Passe'}
+        placeholderTextColor="#003f5c"
       />
+      </View>
+
+      <View style={styles.inputView}>
       <TextInput
-        style={!validConfirmPwd ? styles.mdpNotValid : styles.formInput}
+        style={!validConfirmPwd ? styles.mdpNotValid : styles.TextInput}
         value={pwdConfirmInput}
         secureTextEntry={true}
         onChangeText={setPwdConfirmInput}
         placeholder={'Confirmation du mot de passe'}
+        placeholderTextColor="#003f5c"
       />
+      </View>
+
+
       <TouchableHighlight
-        style={{
-          borderColor: 'black',
-          height: 50,
-          width: 150,
-          borderRadius: 400 / 2,
-          borderWidth: 2,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        style={styles.loginBtn}
         onPress={onPressButton}>
         <Text> Envoyer </Text>
       </TouchableHighlight>
 
-      {/*<View*/}
-      {/*    style={{*/}
-      {/*        flex: 1,*/}
-      {/*        backgroundColor: 'red',*/}
-      {/*    }}>*/}
-      {/*</View>*/}
-      {/*<View*/}
-      {/*    style={{*/}
-      {/*        flex: 1,*/}
-      {/*        backgroundColor: 'green',*/}
-      {/*        flexDirection: "row",*/}
-      {/*        alignItems: "center",*/}
-      {/*        justifyContent: "space-around",*/}
-      {/*    }}>*/}
-      {/*    <Button></Button>*/}
-      {/*    <Button></Button>*/}
-      {/*    <Button></Button>*/}
-
-      {/*</View>*/}
-      {/*<View*/}
-      {/*    style={{*/}
-      {/*        flex: 3,*/}
-      {/*        backgroundColor: 'blue',}*/}
-      {/*}>*/}
-
-      {/*</View>*/}
     </SafeAreaView>
   );
 };
@@ -159,8 +135,9 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: "#282828",
   },
   item: {
     backgroundColor: 'lightblue',
@@ -168,20 +145,44 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
-  formInput: {
-    borderWidth: 1,
-    backgroundColor: '#F0FFFF',
-    height: 40,
-    width: 250,
-    borderRadius: 5,
+  image: {
+    marginBottom: 40,
+    width: 150,
+    height: 150,
+    borderRadius: 400 / 2,
+  },
+  inputView: {
+    backgroundColor: "#6198ec",
+    borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
+  },
+  TextInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+    color: '#003f5c',
   },
   mdpNotValid: {
     borderWidth: 1,
     borderColor: 'red',
-    backgroundColor: '#F0FFFF',
-    height: 40,
-    width: 250,
     borderRadius: 5,
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+    color: '#003f5c',
+  },
+  loginBtn: {
+    width: "80%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: "#1482ff",
   },
 });
 
