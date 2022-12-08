@@ -22,5 +22,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 
 ### Modules externes utilisés:
 
-- Lorem
-- Ipsum
+- react-redux
+- @reduxjs/toolkit
+- @react-native-async-storage/async-storage
+- @react-navigation/native
+- redux-persist
+- react-native-screens
+- react-native-safe-area-context
