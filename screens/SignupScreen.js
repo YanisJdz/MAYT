@@ -88,7 +88,6 @@ const SignupScreen = props => {
         style={styles.image}
       />
 
-      <View style={styles.inputView}>
       <TextInput
         style={styles.TextInput}
         value={pseudoInput}
@@ -96,9 +95,7 @@ const SignupScreen = props => {
         placeholder={'Pseudo'}
         placeholderTextColor="#003f5c"
       />
-      </View>
 
-      <View style={styles.inputView}>
       <TextInput
         style={validPwd ? styles.mdpNotValid : styles.TextInput}
         value={pwdInput}
@@ -107,9 +104,7 @@ const SignupScreen = props => {
         placeholder={'Mot de Passe'}
         placeholderTextColor="#003f5c"
       />
-      </View>
 
-      <View style={styles.inputView}>
       <TextInput
         style={!validConfirmPwd ? styles.mdpNotValid : styles.TextInput}
         value={pwdConfirmInput}
@@ -118,7 +113,6 @@ const SignupScreen = props => {
         placeholder={'Confirmation du mot de passe'}
         placeholderTextColor="#003f5c"
       />
-      </View>
 
 
       <TouchableHighlight
@@ -135,15 +129,9 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: "#282828",
-  },
-  item: {
-    backgroundColor: 'lightblue',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
   },
   image: {
     marginBottom: 40,
@@ -156,21 +144,23 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: "70%",
     height: 45,
-    marginBottom: 20,
   },
   TextInput: {
-    height: 50,
-    flex: 1,
+    backgroundColor: "#6198ec",
+    borderRadius: 30,
+    height: 45,
+    width: "70%",
     padding: 10,
     marginLeft: 20,
     color: '#003f5c',
   },
   mdpNotValid: {
+    backgroundColor: "#6198ec",
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: 'red',
-    borderRadius: 5,
-    height: 50,
-    flex: 1,
+    height: 45,
+    width: "70%",
     padding: 10,
     marginLeft: 20,
     color: '#003f5c',
