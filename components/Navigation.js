@@ -7,6 +7,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+
+import HomeScreen from '../views/HomeScreen.js';
 import Page1 from '../views/Page1.js';
 import Page2 from '../views/Page2.js';
 import Page3 from '../views/Page3.js';
@@ -36,7 +38,7 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: 'gray',
       })}>
       <Tab.Screen name="Profile" component={Page1} />
-      <Tab.Screen name="News" component={Page2} />
+      <Tab.Screen name="News" component={HomeScreen} />
       <Tab.Screen name="Categories" component={Page3} />
       <Tab.Screen name="Search" component={Page4} />
     </Tab.Navigator>

@@ -19,7 +19,7 @@ export default GameCard = ({item, index}) => {
         key={index}
         onPress={()=>{
             console.log(item);
-            //Navigation vers écran détails
+            //Navigation vers écran détails en envoyant {item}
         }}
     >
       <View style={styles.card}>
