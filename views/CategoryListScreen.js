@@ -13,8 +13,11 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import GameListScreen from "./GameListScreen";
 
-export default CategoryListScreen = ({}) => {
+export default CategoryListScreen = props => {
+  const {navigation} = props;
+
   const categories = [
     'mmorpg',
     'shooter',
@@ -63,10 +66,19 @@ export default CategoryListScreen = ({}) => {
     'mmorts',
   ];
   const [categoryList, setCategoryList] = useState([]);
+  const [show, setShow] = useState(false);
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
     setCategoryList([...categoryList, ...categories]);
+    setCategory('')
   }, []);
+
+  const goToGameList = async (param) => {
+    setCategory(param)
+    navigation.navigate('GameList', { category: param, title: param })
+  }
+
 
   return (
     <SafeAreaView>
@@ -74,7 +86,8 @@ export default CategoryListScreen = ({}) => {
         data={categoryList}
         renderItem={({item, index}) => {
           return (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity onPress={() => goToGameList(item)}
+              key={index}>
               <Text>{item}</Text>
             </TouchableOpacity>
           );
