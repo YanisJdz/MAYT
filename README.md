@@ -35,3 +35,4 @@ Api de FreeToGame.com nous permettant de recevoir un nombre conséquent de jeu a
 - redux-persist
 - react-native-screens
 - react-native-safe-area-context
+- Linking
