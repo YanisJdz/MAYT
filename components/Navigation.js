@@ -15,6 +15,7 @@ import Page3 from '../views/Page3.js';
 import Page4 from '../views/Page4.js';
 import CategoryListScreen from "../views/CategoryListScreen.js";
 import GameListScreen from "../views/GameListScreen";
+import GameDetailsScreen from "../views/GameDetailsScreen";
 
 const TabNavigator = () => {
   return (
@@ -57,6 +58,11 @@ const StackNavigator = () => {
         }}>
         <Stack.Screen name="MyApp" component={TabNavigator} />
         <Stack.Screen name="GameList" component={GameListScreen}
+                      options={({ route }) => ({
+                        title: route.params.title,
+                        headerShown: true,
+                      })} />
+        <Stack.Screen name="GameDetail" component={GameDetailsScreen}
                       options={({ route }) => ({
                         title: route.params.title,
                         headerShown: true,

@@ -14,7 +14,9 @@ import {
   FlatList,
 } from 'react-native';
 
-export default GameDetailsScreen = ({item}) => {
+export default GameDetailsScreen = ({route, navigation}) => {
+  const {item, title} = route.params;
+
   return (
     <SafeAreaView>
       <View>

@@ -12,13 +12,16 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
-export default GameCard = ({item, index}) => {
+export default GameCard = ({ item, index }) => {
+  const navigation = useNavigation()
+
   return (
     <TouchableOpacity
         key={index}
         onPress={()=>{
-            console.log(item);
+            navigation.navigate('GameDetail', { item: item, title: item.title })
             //Navigation vers écran détails en envoyant {item}
         }}
     >
