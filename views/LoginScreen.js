@@ -8,7 +8,6 @@ import {
   Button,
   TouchableOpacity, Alert,
 } from "react-native";
-import { actions as userActions } from "../redux/reducers/userReducer";
 import { actions as sessionActions } from "../redux/reducers/sessionReducer";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";

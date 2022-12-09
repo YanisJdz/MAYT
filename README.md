@@ -33,3 +33,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 - redux-persist
 - react-native-screens
 - react-native-safe-area-context
+- react-native-image-picker

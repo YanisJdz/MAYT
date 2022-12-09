@@ -10,10 +10,8 @@ import {
 } from "react-native";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import { store } from "./redux/store";
+import {store} from "./redux/store";
 import { Provider } from "react-redux";
-import {NavigationContainer} from '@react-navigation/native';
-import AppNavigator from "./AppNavigator";
 
 
 import Navigation from './components/Navigation';
@@ -35,3 +33,4 @@ export default App = () => {
 };
 
 const styles = StyleSheet.create({});
+

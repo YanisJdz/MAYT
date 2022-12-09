@@ -9,15 +9,13 @@ const Stack = createNativeStackNavigator();
 
 
 import HomeScreen from '../views/HomeScreen.js';
-import Page1 from '../views/Page1.js';
-import Page2 from '../views/Page2.js';
-import Page3 from '../views/Page3.js';
 import Page4 from '../views/Page4.js';
 import CategoryListScreen from "../views/CategoryListScreen.js";
 import GameListScreen from "../views/GameListScreen";
 import GameDetailsScreen from "../views/GameDetailsScreen";
 import SignupScreen from "../views/SignupScreen";
 import LoginScreen from "../views/LoginScreen";
+import ProfileScreen from "../views/ProfileScreen.js";
 
 const TabNavigator = () => {
   return (
@@ -42,7 +40,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: "steelblue",
         tabBarInactiveTintColor: "gray",
       })}>
-      <Tab.Screen name="Profile" component={Page1} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen name="News" component={HomeScreen} />
       <Tab.Screen name="Categories" component={CategoryListScreen} />
       <Tab.Screen name="Search" component={Page4} />

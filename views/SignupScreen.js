@@ -15,7 +15,7 @@ import { actions as userActions } from "../redux/reducers/userReducer";
 const SignupScreen = props => {
   const { navigation } = props;
 
-  const userBase = useSelector(state => state.user.userBase);
+  const userBase = useSelector(s => s.user.userBase);
   const dispatch = useDispatch();
 
   const [pseudoInput, setPseudoInput] = useState("");
@@ -65,6 +65,8 @@ const SignupScreen = props => {
     const user = {
       name: pseudoInput,
       pwd: pwdInput,
+      picture: '',
+      email: '',
     };
 
     dispatch(userActions.addUser(user));
