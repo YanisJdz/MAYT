@@ -12,9 +12,11 @@ import { actions as userActions } from "../redux/reducers/userReducer";
 import { actions as sessionActions } from "../redux/reducers/sessionReducer";
 import { useDispatch, useSelector } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 
-const LoginScreen = props => {
-  const {navigation} = props;
+const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const userBase = useSelector(state => state.user.userBase);
   const dispatch = useDispatch();
 
@@ -22,13 +24,13 @@ const LoginScreen = props => {
   const [password, setPassword] = useState("");
 
   const goToSignup = useCallback(() => {
-      navigation.navigate('Signup');
-    }, [navigation]
+      navigation.navigate("Signup");
+    }, [navigation],
   );
 
-  const clearAsyncStorage = async() => {
+  const clearAsyncStorage = async () => {
     await AsyncStorage.clear();
-  }
+  };
 
   const onLoginButton = useCallback(() => {
     if (!username || !password) {
@@ -36,13 +38,10 @@ const LoginScreen = props => {
     }
 
     if (userBase.find(x => x.name === username && x.pwd === password)) {
-      Alert.alert(
-        "", "Vous êtes connecté"
-      );
+      navigation.navigate("MyApp");
     } else {
       Alert.alert(
-        "", "Nom d'utilisateur ou mot de passe incorrect"
-
+        "", "Nom d'utilisateur ou mot de passe incorrect",
       );
       return;
     }
@@ -81,7 +80,7 @@ const LoginScreen = props => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={onLoginButton}
-        style={styles.loginBtn}>
+                        style={styles.loginBtn}>
         <Text>SE CONNECTER</Text>
       </TouchableOpacity>
 
@@ -90,7 +89,7 @@ const LoginScreen = props => {
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

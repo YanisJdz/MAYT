@@ -28,9 +28,7 @@ export default App = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <NavigationContainer>
-          <AppNavigator/>
-        </NavigationContainer>
+        <Navigation></Navigation>
       </PersistGate>
     </Provider>
   );

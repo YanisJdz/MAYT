@@ -16,6 +16,8 @@ import Page4 from '../views/Page4.js';
 import CategoryListScreen from "../views/CategoryListScreen.js";
 import GameListScreen from "../views/GameListScreen";
 import GameDetailsScreen from "../views/GameDetailsScreen";
+import SignupScreen from "../views/SignupScreen";
+import LoginScreen from "../views/LoginScreen";
 
 const TabNavigator = () => {
   return (
@@ -52,10 +54,12 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={"MyApp"}
+        initialRouteName={"Login"}
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="MyApp" component={TabNavigator} />
         <Stack.Screen name="GameList" component={GameListScreen}
                       options={({ route }) => ({
