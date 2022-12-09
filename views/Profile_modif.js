@@ -53,8 +53,9 @@ const App = () => {
                 alignContent: 'center',
                 textAlign: 'center',
                 marginTop: 50,
+                color: 'grey',
               }}>
-              Modifier ma photo
+              Add a picture
             </Text>
           )}
         </TouchableOpacity>
@@ -129,6 +130,7 @@ const App = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#282828',
   },
   column_inscription: {
     flexDirection: 'column',
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   round: {
-    borderColor: 'black',
+    borderColor: 'grey',
     backgroundColor: 'lightgray',
     borderWidth: 1,
     width: 150,
@@ -148,13 +150,13 @@ const styles = StyleSheet.create({
   },
 
   bold: {
-    color: 'black',
+    color: 'lightgrey',
     fontWeight: 'bold',
     fontSize: 30,
   },
 
   enter_text: {
-    borderColor: 'black',
+    borderColor: 'lightsteelblue',
     borderRadius: 7,
     width: '70%',
     borderWidth: 1,

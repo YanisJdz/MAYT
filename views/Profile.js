@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,8 +11,30 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 const App = () => {
+  const sessionData = useSelector(state => state.session.sessionData);
+  const userBase = useSelector(state => state.user.userBase);
+  const dispatch = useDispatch();
+  const userData = userBase.find(x => x.name === sessionData.user);
+  const [firstNameEmpty, setFirstNameEmpty] = useState(true);
+  useEffect(() => {
+    setFirstNameEmpty(userData.firstName == '');
+  }, [userData.firstName]);
+  const [lastNameEmpty, setLastNameEmpty] = useState(true);
+  useEffect(() => {
+    setLastNameEmpty(userData.lastName == '');
+  }, [userData.lastName]);
+  const [emailEmpty, setEmailEmpty] = useState(true);
+  useEffect(() => {
+    setEmailEmpty(userData.email == '');
+  }, [userData.email]);
+  const [phoneNumbertEmpty, setPhoneNumberEmpty] = useState(true);
+  useEffect(() => {
+    setPhoneNumberEmpty(userData.phoneNumber == '');
+  }, [userData.phoneNumber]);
+
   const navigation = useNavigation();
   const goToModif = useCallback(() => {
     navigation.navigate('Profile_modif');
@@ -24,11 +46,20 @@ const App = () => {
       </View>
       <View style={styles.column_inscription}>
         <View style={styles.round} />
-        <Text style={styles.enter_text}>Nom</Text>
-        <Text style={styles.enter_text}>Prénom</Text>
+        <Text style={styles.enter_text}>{userData.name}</Text>
+        <Text style={styles.enter_text}>
+          {lastNameEmpty ? 'Last Name' : userData.lastName}
+        </Text>
+        <Text style={styles.enter_text}>
+          {firstNameEmpty ? 'First Name' : userData.firstName}
+        </Text>
         <Text style={styles.enter_text}>Date de naissance</Text>
-        <Text style={styles.enter_text}>Email</Text>
-        <Text style={styles.enter_text}>Numéro de téléphone</Text>
+        <Text style={styles.enter_text}>
+          {emailEmpty ? 'Email' : userData.email}
+        </Text>
+        <Text style={styles.enter_text}>
+          {phoneNumbertEmpty ? 'Phone Number' : userData.phoneNumber}
+        </Text>
         <TouchableOpacity style={styles.bouton} onPress={goToModif}>
           <Text>Edit</Text>
         </TouchableOpacity>
@@ -40,6 +71,7 @@ const App = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#282828',
   },
   column_inscription: {
     flexDirection: 'column',
@@ -59,13 +91,13 @@ const styles = StyleSheet.create({
   },
 
   bold: {
-    color: 'black',
+    color: 'lightgrey',
     fontWeight: 'bold',
     fontSize: 30,
   },
 
   enter_text: {
-    borderColor: 'black',
+    borderColor: 'lightsteelblue',
     borderRadius: 7,
     width: '70%',
     borderWidth: 1,

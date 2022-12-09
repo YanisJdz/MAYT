@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, {useCallback, useMemo, useState} from 'react';
 import {
   Alert,
   Image,
@@ -6,26 +6,26 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableHighlight, TouchableOpacity, View,
-} from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { actions as userActions } from "../redux/reducers/userReducer";
-
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {actions as userActions} from '../redux/reducers/userReducer';
 
 const SignupScreen = props => {
-  const { navigation } = props;
+  const {navigation} = props;
 
   const userBase = useSelector(state => state.user.userBase);
   const dispatch = useDispatch();
 
-  const [pseudoInput, setPseudoInput] = useState("");
-  const [pwdInput, setPwdInput] = useState("");
-  const [pwdConfirmInput, setPwdConfirmInput] = useState("");
+  const [pseudoInput, setPseudoInput] = useState('');
+  const [pwdInput, setPwdInput] = useState('');
+  const [pwdConfirmInput, setPwdConfirmInput] = useState('');
 
   const goToLogin = useCallback(() => {
-      navigation.navigate('Login');
-    }, [navigation]
-  );
+    navigation.navigate('Login');
+  }, [navigation]);
 
   const validPwd = useMemo(() => {
     return pwdInput.length <= 3 && pwdInput.length > 0;
@@ -38,39 +38,42 @@ const SignupScreen = props => {
   const onRegisterButton = useCallback(() => {
     if (!pseudoInput || !pwdInput) {
       Alert.alert(
-        `Erreur`, "Veuillez entrer un nom d'utilisateur et un mot de passe correct.",
+        'Erreur',
+        "Veuillez entrer un nom d'utilisateur et un mot de passe correct.",
       );
       return;
     }
 
     if (pwdInput !== pwdConfirmInput) {
       Alert.alert(
-        `Erreur`, "Le mot de passe et la vérification ne correspondent pas.",
+        'Erreur',
+        'Le mot de passe et la vérification ne correspondent pas.',
       );
       return;
     }
 
     if (userBase.find(x => x.name === pseudoInput)) {
-      Alert.alert(
-        `Erreur`, "Ce nom d'utilisateur est déjà utilisé",
-      );
+      Alert.alert('Erreur', "Ce nom d'utilisateur est déjà utilisé");
       return;
     } else {
-      Alert.alert(
-        ``, "Votre compte a bien été créé",
-      );
+      Alert.alert('', 'Votre compte a bien été créé');
     }
-
 
     const user = {
       name: pseudoInput,
       pwd: pwdInput,
+      email: '',
+      phoneNumber: '',
+      firstName: '',
+      lastName: '',
+      birthDate: '',
+      picture: '',
     };
 
     dispatch(userActions.addUser(user));
-    setPseudoInput("");
-    setPwdInput("");
-    setPwdConfirmInput("");
+    setPseudoInput('');
+    setPwdInput('');
+    setPwdConfirmInput('');
     console.log(userBase);
   }, [dispatch, pseudoInput, pwdInput, pwdConfirmInput]);
 
@@ -78,8 +81,8 @@ const SignupScreen = props => {
     <SafeAreaView style={styles.screen}>
       <Text
         style={{
-          fontWeight: "bold",
-          color: "white",
+          fontWeight: 'bold',
+          color: 'white',
           fontSize: 25,
           marginBottom: 20,
         }}>
@@ -87,7 +90,7 @@ const SignupScreen = props => {
       </Text>
 
       <Image
-        source={require("../assets/pictures/logo_freetogame.png")}
+        source={require('../assets/pictures/logo_freetogame.png')}
         style={styles.image}
       />
 
@@ -107,7 +110,7 @@ const SignupScreen = props => {
           value={pwdInput}
           secureTextEntry={true}
           onChangeText={setPwdInput}
-          placeholder={"Mot de Passe"}
+          placeholder={'Mot de Passe'}
           placeholderTextColor="#003f5c"
         />
       </View>
@@ -118,11 +121,10 @@ const SignupScreen = props => {
           value={pwdConfirmInput}
           secureTextEntry={true}
           onChangeText={setPwdConfirmInput}
-          placeholder={"Confirmation du mot de passe"}
+          placeholder={'Confirmation du mot de passe'}
           placeholderTextColor="#003f5c"
         />
       </View>
-
 
       <TouchableHighlight
         style={styles.registerButton}
@@ -133,7 +135,6 @@ const SignupScreen = props => {
       <TouchableOpacity onPress={goToLogin}>
         <Text style={styles.loginButton}>Se connecter</Text>
       </TouchableOpacity>
-
     </SafeAreaView>
   );
 };
@@ -141,10 +142,10 @@ const SignupScreen = props => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#282828",
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#282828',
   },
   image: {
     marginBottom: 40,
@@ -153,9 +154,9 @@ const styles = StyleSheet.create({
     borderRadius: 400 / 2,
   },
   inputView: {
-    backgroundColor: "#6198ec",
+    backgroundColor: '#6198ec',
     borderRadius: 30,
-    width: "70%",
+    width: '70%',
     height: 45,
     marginBottom: 20,
   },
@@ -166,28 +167,28 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   mdpNotValid: {
-    backgroundColor: "#6198ec",
+    backgroundColor: '#6198ec',
     borderRadius: 30,
     borderWidth: 1,
     borderColor: 'red',
-    width: "70%",
+    width: '70%',
     height: 45,
     marginBottom: 20,
   },
   registerButton: {
-    width: "80%",
+    width: '80%',
     borderRadius: 25,
     height: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 40,
-    backgroundColor: "#1482ff",
+    backgroundColor: '#1482ff',
   },
 
   loginButton: {
     height: 30,
     marginTop: 20,
-    color: "#fff",
+    color: '#fff',
   },
 });
 
