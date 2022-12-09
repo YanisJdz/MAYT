@@ -10,15 +10,17 @@ Membres du groupe :
 
 ## Présentation du projet: 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. 
+MAYT est une application mobile répertoriant et listant les dernieres sorties de jeux-vidéos. L'application fournit les informations de sortie de chaque jeu, comprenant sa date de sortie, son éditeur, et autres...
 
 ### Api utilisée:
 
-Lien: [ApiLink](https://www.freetogame.com/api-doc )
+Lien: [ApiLink](https://www.freetogame.com/api-doc)
 
 Description: 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. 
+Api de FreeToGame.com nous permettant de recevoir un nombre conséquent de jeu ainsi que leur informations. 
+
+``
 
 ### Modules externes utilisés:
 

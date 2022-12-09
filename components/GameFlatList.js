@@ -40,6 +40,16 @@ export default GameFlatList = ({category}) => {
       } catch (error) {
         console.error(error);
       }
+    } else if (category === 'all') {
+      try {
+        await axios
+          .get('https://www.freetogame.com/api/games?sort-by=alphabetical')
+          .then(response => {
+            setGamesData([...gamesData, ...response.data]);
+          });
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       try {
         await axios

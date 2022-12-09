@@ -13,57 +13,59 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import GameListScreen from "./GameListScreen";
+import GameListScreen from './GameListScreen';
 
 export default CategoryListScreen = props => {
   const {navigation} = props;
 
   const categories = [
-    'mmorpg',
-    'shooter',
-    'strategy',
-    'moba',
-    'racing',
-    'sports',
-    'social',
-    'sandbox',
-    'open-world',
-    'survival',
-    'pvp',
-    'pve',
-    'pixel',
-    'voxel',
-    'zombie',
-    'turn-based',
-    'first-person',
-    'third-Person',
-    'top-down',
-    'tank',
-    'space',
-    'sailing',
-    'side-scroller',
-    'superhero',
-    'permadeath',
-    'card',
+    'all',
+    '2d',
+    '3d',
+    'action',
+    'action-rpg',
+    'all',
+    'anime',
     'battle-royale',
+    'card',
+    'fantasy',
+    'fighting',
+    'first-person',
+    'flight',
+    'horror',
+    'low-spec',
+    'martial-arts',
+    'military',
     'mmo',
     'mmofps',
-    'mmotps',
-    '3d',
-    '2d',
-    'anime',
-    'fantasy',
-    'sci-fi',
-    'fighting',
-    'action-rpg',
-    'action',
-    'military',
-    'martial-arts',
-    'flight',
-    'low-spec',
-    'tower-defense',
-    'horror',
+    'mmorpg',
     'mmorts',
+    'mmotps',
+    'moba',
+    'open-world',
+    'permadeath',
+    'pixel',
+    'pve',
+    'pvp',
+    'racing',
+    'sailing',
+    'sandbox',
+    'sci-fi',
+    'shooter',
+    'side-scroller',
+    'social',
+    'space',
+    'sports',
+    'strategy',
+    'superhero',
+    'survival',
+    'tank',
+    'third-Person',
+    'top-down',
+    'tower-defense',
+    'turn-based',
+    'voxel',
+    'zombie',
   ];
   const [categoryList, setCategoryList] = useState([]);
   const [show, setShow] = useState(false);
@@ -71,14 +73,13 @@ export default CategoryListScreen = props => {
 
   useEffect(() => {
     setCategoryList([...categoryList, ...categories]);
-    setCategory('')
+    setCategory('');
   }, []);
 
-  const goToGameList = async (param) => {
-    setCategory(param)
-    navigation.navigate('GameList', { category: param, title: param })
-  }
-
+  const goToGameList = async param => {
+    setCategory(param);
+    navigation.navigate('GameList', {category: param, title: param});
+  };
 
   return (
     <SafeAreaView>
@@ -86,8 +87,7 @@ export default CategoryListScreen = props => {
         data={categoryList}
         renderItem={({item, index}) => {
           return (
-            <TouchableOpacity onPress={() => goToGameList(item)}
-              key={index}>
+            <TouchableOpacity onPress={() => goToGameList(item)} key={index}>
               <Text>{item}</Text>
             </TouchableOpacity>
           );
