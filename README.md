@@ -20,6 +20,22 @@ Description:
 
 Api de FreeToGame.com nous permettant de recevoir un nombre conséquent de jeu ainsi que leur informations. 
 
+Exemple d'objet retourné par l'API: 
+
+``
+    {
+        "id": 325,
+        "title": "MapleStory",
+        "thumbnail": "https://www.freetogame.com/g/325/thumbnail.jpg",
+        "short_description": "A popular free-to-play 2D side-scrolling MMORPG with tons of quests, and a huge game world!",
+        "game_url": "https://www.freetogame.com/open/maplestory",
+        "genre": "MMORPG",
+        "platform": "PC (Windows)",
+        "publisher": "Nexon",
+        "developer": "Wizet",
+        "release_date": "2005-05-11",
+        "freetogame_profile_url": "https://www.freetogame.com/maplestory"
+    }
 ``
 
 ### Modules externes utilisés:
