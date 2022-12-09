@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 
     height: 100,
     borderRadius: 15,
-    backgroundColor: '#dfe4ea',
+    backgroundColor: 'steelblue',
     alignItems: 'center',
   },
   cardImage: {
@@ -109,9 +109,11 @@ const styles = StyleSheet.create({
   },
   cardDetail: {
     overflow: 'hidden',
+    color: 'white',
   },
   cardRelease: {
     alignItems: 'center',
+    color: 'white',
     fontSize: 12,
   },
 });
