@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import axios from 'axios';
 import {
   Dimensions,
   SafeAreaView,
@@ -16,35 +17,63 @@ import {
 } from 'react-native';
 
 export default GameDetailsScreen = ({route, navigation}) => {
-  const {item, title} = route.params;
+  const {item} = route.params;
+
+  const [detailedGame, setDetailedGame] = useState({});
+
+  useEffect(() =>{
+    getGameDetails();
+    console.log(detailedGame);
+  },[])
+
+  const getGameDetails = async () => {
+    try {
+      await axios
+        .get(`https://www.freetogame.com/api/game?id=${item.id}`)
+        .then(response => {
+          setDetailedGame(...response.data);
+          console.log(detailedGame);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.titleText}>{item.title}</Text>
+      <Text style={styles.titleText}>{detailedGame.title}</Text>
 
       <Image
         source={{
-          uri: item.thumbnail,
+          uri: detailedGame.thumbnail,
         }}
         style={styles.image}
       />
 
-      <Text style={styles.descriptionText}>{item.short_description}</Text>
+      <Text style={styles.descriptionText}>{detailedGame.description}</Text>
       <View>
-        <Text style={styles.categoriesText}>{'Categories:'}</Text>
-        <Text style={styles.normalText}>{item.genre}</Text>
+        <Text style={styles.categoriesText}>{'Categorie:'}</Text>
+        <Text style={styles.normalText}>{detailedGame.genre}</Text>
       </View>
       <View>
-        <Text style={styles.categoriesText}>{'Platform:'}</Text>
-        <Text style={styles.normalText}>{item.platform}</Text>
+        <Text style={styles.categoriesText}>{'Platforme:'}</Text>
+        <Text style={styles.normalText}>{detailedGame.platform}</Text>
       </View>
       <View>
-        <Text style={styles.categoriesText}>{'Publisher:'}</Text>
-        <Text style={styles.normalText}>{item.publisher}</Text>
+        <Text style={styles.categoriesText}>{'Éditeur:'}</Text>
+        <Text style={styles.normalText}>{detailedGame.publisher}</Text>
       </View>
       <View>
-        <Text style={styles.categoriesText}>{'Release Date:'}</Text>
-        <Text style={styles.normalText}>{item.release_date}</Text>
+        <Text style={styles.categoriesText}>{'Date de sortie:'}</Text>
+        <Text style={styles.normalText}>{detailedGame.release_date}</Text>
+      </View>
+      <View>
+        <Text style={styles.categoriesText}>{'Configuration système minimale requise:'}</Text>
+        <Text style={styles.normalText}>Os: {detailedGame.minimum_system_requirements}</Text>
+        {/* <Text style={styles.normalText}>Processeur: {detailedGame.minimum_system_requirements[1]}</Text>
+        <Text style={styles.normalText}>Mémoire: {detailedGame.minimum_system_requirements[2]}</Text>
+        <Text style={styles.normalText}>Graphique: {detailedGame.minimum_system_requirements[3]}</Text>
+        <Text style={styles.normalText}>Espace de stockage: {detailedGame.minimum_system_requirements[4]}</Text> */}
       </View>
 
       <TouchableOpacity
@@ -57,8 +86,8 @@ export default GameDetailsScreen = ({route, navigation}) => {
           marginTop: 20,
           alignItems: 'center',
         }}
-        onPress={() => Linking.openURL(item.game_url)}>
-        <Text style={styles.gameLink}>{item.title}</Text>
+        onPress={() => Linking.openURL(detailedGame.game_url)}>
+        <Text style={styles.gameLink}>{detailedGame.title}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

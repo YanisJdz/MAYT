@@ -22,7 +22,6 @@ export default GameCard = ({ item, index }) => {
         key={index}
         onPress={()=>{
             navigation.navigate('GameDetail', { item: item, title: item.title })
-            //Navigation vers écran détails en envoyant {item}
         }}
     >
       <View style={styles.card}>
@@ -69,7 +68,7 @@ export default GameCard = ({ item, index }) => {
               style={styles.cardRelease}
               numberOfLines={1}
               ellipsizeMode="tail">
-              Release date : {item.release_date}
+              Date de sortie : {item.release_date}
             </Text>
           </View>
         </View>
