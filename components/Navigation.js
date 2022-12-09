@@ -9,8 +9,6 @@ const Stack = createNativeStackNavigator();
 
 
 import HomeScreen from '../views/HomeScreen.js';
-import Page1 from '../views/Page1.js';
-import Page4 from '../views/Page4.js';
 import CategoryListScreen from "../views/CategoryListScreen.js";
 import GameListScreen from "../views/GameListScreen";
 import GameDetailsScreen from "../views/GameDetailsScreen";
