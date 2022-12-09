@@ -13,7 +13,6 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import GameListScreen from './GameListScreen';
 
 export default CategoryListScreen = props => {
   const {navigation} = props;
@@ -24,7 +23,6 @@ export default CategoryListScreen = props => {
     '3d',
     'action',
     'action-rpg',
-    'all',
     'anime',
     'battle-royale',
     'card',
@@ -88,7 +86,9 @@ export default CategoryListScreen = props => {
         renderItem={({item, index}) => {
           return (
             <TouchableOpacity onPress={() => goToGameList(item)} key={index}>
-              <Text>{item}</Text>
+              <View style={styles.card}>
+                <Text style={{textTransform: 'capitalize'}}>{item}</Text>
+              </View>
             </TouchableOpacity>
           );
         }}
@@ -97,4 +97,16 @@ export default CategoryListScreen = props => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  card: {
+    marginVertical: 10,
+    marginHorizontal: 20,
+    paddingHorizontal: 10,
+
+    height: 100,
+    borderRadius: 15,
+    backgroundColor: '#dfe4ea',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
