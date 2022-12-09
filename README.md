@@ -29,3 +29,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 - @react-navigation/native-stack (pour la navigation)
 - @react-navigation/native (starter pack)
 - react-native-screens react-native-safe-area-context (starter pack)
+- react-native-image-picker (accès à la galerie et à l'appareil photo)
+- react-native-date-picker (pour add la date de naissance)
+-

@@ -5,7 +5,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Search</Text>
+        <Text>sszszd</Text>
       </View>
     </SafeAreaView>
   );

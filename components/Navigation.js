@@ -7,8 +7,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-import Page1 from '../views/Page1.js';
-import Page2 from '../views/Page2.js';
+import Profile from '../views/Profile.js';
+import Profile_modif from '../views/Profile_modif.js';
 import Page3 from '../views/Page3.js';
 import Page4 from '../views/Page4.js';
 
@@ -21,11 +21,11 @@ const TabNavigator = () => {
           let iconName;
 
           if (route.name === 'Profile') {
-            iconName = focused ? 'ios-person' : 'ios-person-outline';
+            iconName = focused ? 'person' : 'person-outline';
           } else if (route.name === 'News') {
-            iconName = focused ? 'ios-star' : 'ios-star-outline';
+            iconName = focused ? 'star' : 'star-outline';
           } else if (route.name === 'Categories') {
-            iconName = focused ? 'ios-library' : 'ios-library-outline';
+            iconName = focused ? 'library' : 'library-outline';
           } else if (route.name === 'Search') {
             iconName = focused ? 'search-circle' : 'search-circle-outline';
           }
@@ -33,10 +33,10 @@ const TabNavigator = () => {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'steelblue',
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: 'lightsteelblue',
       })}>
-      <Tab.Screen name="Profile" component={Page1} />
-      <Tab.Screen name="News" component={Page2} />
+      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="News" component={Page3} />
       <Tab.Screen name="Categories" component={Page3} />
       <Tab.Screen name="Search" component={Page4} />
     </Tab.Navigator>
@@ -52,6 +52,7 @@ const StackNavigator = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="MyApp" component={TabNavigator} />
+        <Stack.Screen name={'Profile_modif'} component={Profile_modif} />
       </Stack.Navigator>
     </NavigationContainer>
   );
