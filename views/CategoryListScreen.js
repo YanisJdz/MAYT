@@ -80,7 +80,7 @@ export default CategoryListScreen = props => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screen}>
       <FlatList
         data={categoryList}
         renderItem={({item, index}) => {
@@ -98,6 +98,10 @@ export default CategoryListScreen = props => {
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: "#282828",
+  },
   card: {
     marginVertical: 10,
     marginHorizontal: 20,
@@ -108,5 +112,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#dfe4ea',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'steelblue',
   },
 });

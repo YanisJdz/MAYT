@@ -17,11 +17,15 @@ import GameFlatList from '../components/GameFlatList';
 
 export default HomeScreen = ({}) => {
   return (
-    <SafeAreaView>
-      <GameFlatList category={'new'}/>
+    <SafeAreaView style={styles.screen}>
+      <GameFlatList category={'new'} />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: '#282828',
+  },
 });

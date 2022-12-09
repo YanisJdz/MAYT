@@ -49,7 +49,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: "steelblue",
         tabBarInactiveTintColor: "gray",
       })}>
-      <Tab.Screen name="Profile" component={Page1} />
+      <Tab.Screen name="Profile" component={HomeScreen} />
       <Tab.Screen name="News" component={HomeScreen} />
       <Tab.Screen name="Categories" component={CategoryListScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
