@@ -17,12 +17,25 @@ import SignupScreen from '../views/SignupScreen';
 import LoginScreen from '../views/LoginScreen';
 import SearchScreen from '../views/SearchScreen';
 
+
 const TabNavigator = () => {
+
+  const customTabBarStyle = {
+    activeTintColor: '#0091EA',
+    inactiveTintColor: 'gray',
+    style: {backgroundColor: 'white' },
+  }
+
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarIcon: ({focused, color, size}) => {
+
+        tabBarStyle: {
+          backgroundColor: 'black',
+        },
+        tabBarIcon: ({ focused, color, size }) => {
+
           let iconName;
 
           if (route.name === 'Profile') {
