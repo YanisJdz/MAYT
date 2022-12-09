@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
   },
   image: {
     marginBottom: 20,
-    width: 150,
-    height: 150,
+    width: Dimensions.get('window').width,
+    height: 200,
     borderRadius: 10,
   },
   categoriesText: {
