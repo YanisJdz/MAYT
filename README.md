@@ -18,7 +18,9 @@ Lien: [ApiLink](https://www.freetogame.com/api-doc)
 
 Description: 
 
-Api de FreeToGame.com nous permettant de recevoir un nombre conséquent de jeu ainsi que leur data. 
+Api de FreeToGame.com nous permettant de recevoir un nombre conséquent de jeu ainsi que leur informations. 
+
+``
 
 ### Modules externes utilisés:
 
